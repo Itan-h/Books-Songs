@@ -141,6 +141,36 @@ h1::after{content:"";display:block;height:1px;width:80px;background:linear-gradi
 .song-info p{margin:0;color:var(--muted)}
 .song-item:nth-child(even){flex-direction:row-reverse}
 
+/* Subtle media queries (no full responsive) */
+@media (max-width: 980px){
+  .container{width:720px;padding:22px 28px}
+  h1{font-size:32px}
+  .edge-art.top-right{width:220px;right:-18px}
+  .edge-art.top-left{width:180px;left:-20px}
+}
+
+@media (max-width: 800px){
+  .container{width:640px;padding:20px}
+  .book-image{flex:0 0 22%}
+  .book-item .book-content{flex:1 1 78%}
+  .song-lyrics{flex:1 1 62%}
+  .song-meta{flex:0 0 38%}
+  .song-image{height:140px}
+  .site-header{padding:20px 0}
+  .site-header .site-nav ul{justify-content:center}
+}
+
+@media (max-width: 600px){
+  /* keep layout but reduce clutter */
+  .container{width:540px;padding:18px}
+  .edge-art{opacity:0.65}
+  .edge-art.top-right, .edge-art.top-left{display:none}
+  .site-header .site-nav ul{flex-wrap:wrap;gap:8px;justify-content:center}
+  .book-item, .song-item{gap:12px}
+  .book-image{flex:0 0 26%}
+  .book-item .book-content{padding:10px}
+}
+
 .song-item:nth-child(odd) .song-lyrics{background:linear-gradient(180deg, rgba(255,255,249,0.06), rgba(157,191,106,0.08));border-left:4px solid var(--apple);}
 .song-item:nth-child(even) .song-lyrics{background:linear-gradient(180deg, rgba(255,250,240,0.04), rgba(139,110,63,0.06));border-right:4px solid rgba(139,110,63,0.18)}
 
