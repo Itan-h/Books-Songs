@@ -12,7 +12,9 @@
       <h1>Vlog Vintage: Música & Libros</h1>
       <p class="tagline">Un rincón para descubrir sonidos y páginas con alma</p>
 
-      <nav class="site-nav" aria-label="Navegación principal">
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Mostrar navegación">☰</button>
+
+      <nav id="main-nav" class="site-nav" aria-label="Navegación principal">
         <ul>
           <li><a href="#musica">Música</a></li>
           <li><a href="#libros">Libros</a></li>
@@ -199,6 +201,18 @@
   <img src="images/cloud.svg" class="edge-art top-right" alt="" aria-hidden="true">
   <img src="images/mushroom.svg" class="edge-art bottom-left" alt="" aria-hidden="true">
   <img src="images/firefly.svg" class="edge-art bottom-right" alt="" aria-hidden="true">
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.nav-toggle');
+      var nav = document.querySelector('.site-header .site-nav');
+      if(!btn || !nav) return;
+      btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+  </script>
 
 </body>
 </html>

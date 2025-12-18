@@ -20,7 +20,8 @@ body{
 
 
 .container{
-  width:900px;
+  width:100%;
+  max-width:900px;
   margin:0 auto;
   background:var(--paper);
   border:1px solid var(--border);
@@ -28,6 +29,7 @@ body{
   padding:28px 36px;
   position:relative; 
   z-index:1;
+  box-sizing:border-box;
 }
 
 
@@ -75,6 +77,15 @@ h3{font-size:18px}
 .site-header .site-nav ul{margin:8px 0 0;display:flex;gap:10px;justify-content:flex-end;align-items:center}
 .site-header .site-nav a{background:rgba(255,255,249,0.08);color:#fffef9;border:1px solid rgba(255,255,249,0.08);padding:8px 14px;border-radius:6px}
 .site-header .site-nav a:hover{background:rgba(255,255,249,0.14);border-color:rgba(255,255,249,0.16);color:#ffffff;transform:translateY(-1px)}
+
+/* Mobile nav toggle (hidden on desktop) */
+.site-header .nav-toggle{display:none;align-items:center;gap:8px;background:transparent;border:1px solid rgba(255,255,249,0.12);color:#fffef9;padding:8px 10px;border-radius:6px;font-size:18px}
+.site-header .nav-toggle:focus{outline:2px solid rgba(157,191,106,0.24);outline-offset:3px}
+
+/* collapsed nav: use max-height trick for smooth open/close */
+.site-header .site-nav{max-height:none;overflow:visible;transition:none}
+.site-header .site-nav.open{max-height:none}
+
 
 .card{background:linear-gradient(180deg, rgba(250,250,240,0.6), rgba(255,255,255,0.8));border:1px solid var(--border);padding:18px;margin-bottom:18px;border-radius:6px}
 
@@ -141,34 +152,50 @@ h1::after{content:"";display:block;height:1px;width:80px;background:linear-gradi
 .song-info p{margin:0;color:var(--muted)}
 .song-item:nth-child(even){flex-direction:row-reverse}
 
-/* Subtle media queries (no full responsive) */
+/* Responsive rules (full responsive) */
 @media (max-width: 980px){
-  .container{width:720px;padding:22px 28px}
-  h1{font-size:32px}
-  .edge-art.top-right{width:220px;right:-18px}
-  .edge-art.top-left{width:180px;left:-20px}
+  .container{max-width:720px;padding:22px 24px}
+  h1{font-size:30px}
+  .edge-art.top-right{width:180px;right:-12px}
+  .edge-art.top-left{width:160px;left:-12px}
 }
 
 @media (max-width: 800px){
-  .container{width:640px;padding:20px}
-  .book-image{flex:0 0 22%}
-  .book-item .book-content{flex:1 1 78%}
-  .song-lyrics{flex:1 1 62%}
-  .song-meta{flex:0 0 38%}
-  .song-image{height:140px}
-  .site-header{padding:20px 0}
-  .site-header .site-nav ul{justify-content:center}
+  /* show mobile nav toggle and collapse nav by default */
+  .container{max-width:640px;padding:20px}
+  .site-header{padding:18px 0}
+  .site-header .nav-toggle{display:inline-flex}
+  .site-header .site-nav{max-height:0;overflow:hidden;transition:max-height 280ms ease-out}
+  .site-header .site-nav.open{max-height:400px}
+
+  /* adjust book and song proportions */
+  .book-image{flex:0 0 auto;height:220px}
+  .book-item{flex-direction:column;align-items:stretch}
+  .book-item .book-content{flex:1 1 auto;padding:12px}
+
+  .song-item{flex-direction:column;align-items:stretch}
+  .song-lyrics{flex:1 1 auto;padding:12px}
+  .song-meta{flex:0 0 auto;flex-direction:row;gap:12px;align-items:center;justify-content:flex-start}
+  .song-image{height:140px;width:48%;}
+  .song-info{width:52%;text-align:left}
 }
 
-@media (max-width: 600px){
-  /* keep layout but reduce clutter */
-  .container{width:540px;padding:18px}
-  .edge-art{opacity:0.65}
-  .edge-art.top-right, .edge-art.top-left{display:none}
-  .site-header .site-nav ul{flex-wrap:wrap;gap:8px;justify-content:center}
-  .book-item, .song-item{gap:12px}
-  .book-image{flex:0 0 26%}
-  .book-item .book-content{padding:10px}
+@media (max-width: 520px){
+  .container{max-width:480px;padding:16px}
+  h1{font-size:26px}
+  .book-image,.song-image{height:200px}
+  .site-header .site-nav ul{flex-direction:column;gap:8px}
+  .site-header .site-nav.open{max-height:800px}
+  .book-item .book-content,.song-item .song-lyrics{padding:10px}
+  .book-item:nth-child(even){flex-direction:column}
+}
+
+@media (max-width: 400px){
+  .container{max-width:360px;padding:12px}
+  h1{font-size:22px}
+  .edge-art{display:none}
+  .book-image,.song-image{height:160px}
+  .nav-toggle{font-size:16px;padding:6px 8px}
 }
 
 .song-item:nth-child(odd) .song-lyrics{background:linear-gradient(180deg, rgba(255,255,249,0.06), rgba(157,191,106,0.08));border-left:4px solid var(--apple);}
