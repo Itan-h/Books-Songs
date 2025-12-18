@@ -127,4 +127,21 @@ h1::after{content:"";display:block;height:1px;width:80px;background:linear-gradi
 
 .edge-art:hover{transform:translateY(-6px) rotate(0deg)}
 
+.song-list{display:flex;flex-direction:column;gap:18px;margin-top:12px}
+.song-item{display:flex;align-items:stretch;gap:18px}
+
+.song-lyrics{flex:1 1 65%;padding:18px;border-radius:6px;color:var(--muted);min-height:160px;display:flex;align-items:center}
+.song-lyrics blockquote{margin:0;font-style:italic;color:#3f4a2e}
+
+.song-meta{flex:0 0 35%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.song-image{width:100%;height:100%;overflow:hidden;border-radius:6px}
+.song-image img{width:100%;height:100%;object-fit:cover;display:block;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.04);transition:transform 360ms cubic-bezier(.2,.9,.3,1)}
+.song-item:hover .song-image img{transform:scale(1.04)}
+.song-info h3{margin:0 0 6px;color:var(--accent)}
+.song-info p{margin:0;color:var(--muted)}
+.song-item:nth-child(even){flex-direction:row-reverse}
+
+.song-item:nth-child(odd) .song-lyrics{background:linear-gradient(180deg, rgba(255,255,249,0.06), rgba(157,191,106,0.08));border-left:4px solid var(--apple);}
+.song-item:nth-child(even) .song-lyrics{background:linear-gradient(180deg, rgba(255,250,240,0.04), rgba(139,110,63,0.06));border-right:4px solid rgba(139,110,63,0.18)}
+
 
