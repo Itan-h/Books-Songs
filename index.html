@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Vlog Vintage: Música & Libros</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Libre+Franklin:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <h1>Vlog Vintage: Música & Libros</h1>
+      <p class="tagline">Un rincón para descubrir sonidos y páginas con alma</p>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <nav class="site-nav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="#musica">Música</a></li>
+        <li><a href="#libros">Libros</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#suscribete">Suscríbete</a></li>
+      </ul>
+    </nav>
+
+    <div class="card">
+        <p>Bienvenidos a este lugar de recomendaciones musicales y literarias. La estetica es mero
+            gusto personal, no se dejen engañar, en su mayoria encontraran musíca grunge, rock y hasta regional
+            mexicano y libros de todo tipo.
+        </p>
+    </div>
+
+    <section id="musica" class="card">
+      <h2>Songs</h2>
+      <p>Cada semana enlistamos descubrimientos de generos diversos</p>
+
+      <article aria-labelledby="playlist-title">
+        <h3 id="playlist-title">Playlist recomendada</h3>
+        <ul>
+          <li>«Lorem» — Lorem</li>
+          <li>«Lorem» — Lorem</li>
+          <li>«Lorem» — Lorem</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="libros" class="card">
+      <h2>Books</h2>
+      <p>Reseñas, fragmentos y descubrimientos literarios.</p>
+
+      <article aria-labelledby="reco-title">
+        <h3 id="reco-title">Recomendación del mes</h3>
+        <p><em>Lorem ipsum dolor sit amet </em> —Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, esse? Pariatur at delectus iste nostrum molestias eum consectetur, debitis earum itaque nam inventore laudantium quam placeat odit rerum voluptas iure!</p>
+      </article>
+    </section>
+
+    <aside id="sobre" class="card" role="complementary">
+      <h2>Sobre el vlog</h2>
+      <p>Cada semana publicamos un video corto con reseñas, playlists y recomendaciones. Nuestro tono es cercano, visualmente vintage y muy enfocado en la naturaleza y lo analógico.</p>
+    </aside>
+
+    <section id="suscribete" class="card">
+      <h2>Suscríbete al vlog semanal</h2>
+      <p>Si te gustan la música  y los libros , deja tus datos y te enviaremos el resumen semanal. Puedes responder al email
+        con sugerencias y puede que un día las publiquemos en el vlog.
+      </p>
+
+      <form action="#" method="post" class="subscribe-form" novalidate>
+        <div class="form-row">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <fieldset class="form-row">
+          <legend>Intereses</legend>
+          <label class="checkbox-inline"><input type="checkbox" name="intereses" value="musica"> Música</label>
+          <label class="checkbox-inline"><input type="checkbox" name="intereses" value="libros"> Libros</label>
+        </fieldset>
+
+        <div class="form-row">
+          <label for="comments">¿Qué te interesa? (opcional)</label>
+          <textarea id="comments" name="comments" rows="4"></textarea>
+        </div>
+
+        <div class="form-row consent">
+          <label><input type="checkbox" required> Acepto recibir resúmenes semanales por correo</label>
+        </div>
+
+        <div class="form-row">
+          <button type="submit" class="btn">Suscribirme</button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Vlog Vintage — Música &amp; Libros</p>
+    </div>
+  </footer>
+</body>
+</html>
