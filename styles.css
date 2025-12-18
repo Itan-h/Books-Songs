@@ -26,6 +26,8 @@ body{
   border:1px solid var(--border);
   box-shadow: 0 6px 18px var(--shadow);
   padding:28px 36px;
+  position:relative; 
+  z-index:1;
 }
 
 
@@ -38,12 +40,41 @@ h1{font-size:36px;letter-spacing:1px}
 h2{font-size:22px}
 h3{font-size:18px}
 
-.site-header{border-bottom:1px solid var(--border); padding-bottom:18px; margin-bottom:20px}
-.tagline{color:var(--muted); margin-top:6px}
+.site-header{
+  background: linear-gradient(90deg, rgba(157,191,106,0.12), rgba(111,154,68,0.16));
+  background-color: var(--apple);
+  padding:26px 0 20px;
+  margin-bottom:24px;
+  border-bottom:2px solid rgba(111,154,68,0.22);
+  position:relative;
+  overflow:visible;
+}
+.site-header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size:8px 8px;
+  opacity:0.6;
+  pointer-events:none;
+  mix-blend-mode:overlay;
+}
+.site-header .container{
+  background:transparent; 
+  border:none;
+  box-shadow:none;
+  padding:14px 36px;
+}
+.site-header h1{color:#fffef9; text-shadow:0 1px 0 rgba(0,0,0,0.08); letter-spacing:1px}
+.tagline{color:rgba(255,255,249,0.95); margin-top:6px; font-style:italic}
 
 .site-nav ul{list-style:none;padding:0;margin:14px 0 24px;display:flex;gap:10px}
 .site-nav a{display:inline-block;padding:8px 12px;background:transparent;border-radius:6px;color:var(--accent);text-decoration:none;border:1px solid transparent}
 .site-nav a:hover{background:rgba(155,179,120,0.12);border-color:rgba(111,154,68,0.12)}
+
+.site-header .site-nav ul{margin:8px 0 0;display:flex;gap:10px;justify-content:flex-end;align-items:center}
+.site-header .site-nav a{background:rgba(255,255,249,0.08);color:#fffef9;border:1px solid rgba(255,255,249,0.08);padding:8px 14px;border-radius:6px}
+.site-header .site-nav a:hover{background:rgba(255,255,249,0.14);border-color:rgba(255,255,249,0.16);color:#ffffff;transform:translateY(-1px)}
 
 .card{background:linear-gradient(180deg, rgba(250,250,240,0.6), rgba(255,255,255,0.8));border:1px solid var(--border);padding:18px;margin-bottom:18px;border-radius:6px}
 
@@ -66,5 +97,13 @@ input[type="text"], input[type="email"], textarea{width:100%;padding:10px;border
 .site-footer{border-top:1px solid var(--border);padding-top:14px;margin-top:20px;text-align:center;font-size:14px;color:var(--muted)}
 
 h1::after{content:"";display:block;height:1px;width:80px;background:linear-gradient(90deg,var(--apple),transparent);margin-top:12px;border-radius:2px}
+
+.edge-art{position:fixed;pointer-events:none;opacity:0.95;z-index:0;filter:drop-shadow(0 8px 18px rgba(0,0,0,0.08));transition:transform 0.45s ease}
+.edge-art.top-left{top:-20px;left:-36px;width:220px;transform:rotate(-6deg) scale(1)}
+.edge-art.top-right{top:-10px;right:-30px;width:260px;transform:rotate(6deg) scaleX(-1)}
+.edge-art.bottom-left{bottom:-22px;left:-34px;width:220px;transform:rotate(4deg) scale(0.95)}
+.edge-art.bottom-right{bottom:-30px;right:-36px;width:180px;transform:rotate(-4deg) scale(0.9)}
+
+.edge-art:hover{transform:translateY(-6px) rotate(0deg)}
 
 
